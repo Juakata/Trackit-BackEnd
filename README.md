@@ -1,24 +1,34 @@
-# README
+# Trackit-BackEnd
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This project is the back-end of the Trackit App built with React Native.
 
-Things you may want to cover:
+## Live Demo
 
-* Ruby version
+[Live Demo Link]()
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby version 2.6.4,
+- Rails version 6.0.0.
 
-* Database creation
+## Authors
 
-* Database initialization
+👤 **Andoni Uzquiano**
 
-* How to run the test suite
+- Github: [@Juakata](https://github.com/Juakata)
+- Twitter: [@HUzquiano](https://twitter.com/HUzquiano)
+- Linkedin: [linkedin](https://www.linkedin.com/in/andoni-uzquiano-31304818a/)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 🤝 Contributing
 
-* ...
+Contributions, issues and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/Juakata/Trackit-BackEnd/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MiT](https://opensource.org/licenses/MIT) licensed.
