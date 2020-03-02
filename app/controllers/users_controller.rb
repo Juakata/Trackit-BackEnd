@@ -1,4 +1,4 @@
-class Api::V1::MoviesController < Api::V1::ApiController
+class Api::V1::UsersController < Api::V1::ApiController
   before_action :set_user, only: %i[show update destroy]
 
   def index
@@ -14,7 +14,7 @@ class Api::V1::MoviesController < Api::V1::ApiController
   def create
     @user = User.new(user_params)
 
-    if @movie.save
+    if @user.save
       render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -34,11 +34,11 @@ class Api::V1::MoviesController < Api::V1::ApiController
   end
 
   private
-    def set_movie
+    def set_user
       @user = User.find(params[:id])
     end
 
-    def movie_params
-      params.require(:movie).permit(:username, :password)
+    def user_params
+      params.require(:user).permit(:username, :password)
     end
 end
