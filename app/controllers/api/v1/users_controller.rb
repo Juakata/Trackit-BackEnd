@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::UsersController < Api::V1::ApiController
   before_action :set_user, only: %i[show update destroy]
 
@@ -34,11 +36,12 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end
