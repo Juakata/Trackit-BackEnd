@@ -2,7 +2,8 @@
 
 class Api::V1::UserCategoriesController < Api::V1::ApiController
   def setUserCategory
-    @category_id = Category.find_by(name: params[:category])
+    @category = fixString(params[:category])
+    @category_id = Category.find_by(name: @category)
     @usercategory = UserCategory.find_by(date: params[:date], category_id: @category_id)
     @user_id = User.find_by(username: params[:user])
 
@@ -18,5 +19,20 @@ class Api::V1::UserCategoriesController < Api::V1::ApiController
       @usercategory.save
       render json: { result: "created" }
     end
+  end
+
+  private
+
+  def fixString(string)
+    arr = ""
+    no = ['%','2','0']
+    string.split('').each do |e|
+      if no.include? e
+        arr += ' ' if e == '%'
+      else
+        arr += e
+      end
+    end
+    arr
   end
 end
