@@ -6,10 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do
-  User.create(
-    username: Faker::Name.name,
-    password: Faker::Crypto.md5,
-    token: Faker::Crypto.sha256,
-  )
-end
+
+User.create(
+  username: 'Juakata',
+  password: '123456',
+  token: '',
+)
+
+User.create(
+  username: 'Andoni',
+  password: '123456',
+  token: '',
+)
+
+Category.create(
+  name: 'Networking',
+)
+
+Category.create(
+  name: 'Looking for job',
+)
+
+Category.create(
+  name: 'Coding Challenges',
+)
+
+Category.create(
+  name: 'Relaxing',
+)
