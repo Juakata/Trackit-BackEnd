@@ -46,10 +46,10 @@ class Api::V1::UsersController < Api::V1::ApiController
         @send = []
         @usercategories.each do |usercategorie|
           @name = Category.find_by(id: usercategorie.category_id).name
-          json = { name: @name, progress: usercategorie.progress }
+          json = { id: usercategorie.id, name: @name, progress: usercategorie.progress }
           @send.push(json)
         end
-        render json: { progress: @send }
+        render json: @send
       else
         render json: { result: 'Unable to find categories.' }
       end
