@@ -49,7 +49,7 @@ class Api::V1::UsersController < Api::V1::ApiController
           json = { name: @name, progress: usercategorie.progress }
           @send.push(json)
         end
-        render json: @send
+        render json: { progress: @send }
       else
         render json: { result: 'Unable to find categories.' }
       end
