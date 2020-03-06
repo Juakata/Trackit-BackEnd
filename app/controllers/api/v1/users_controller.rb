@@ -42,12 +42,8 @@ class Api::V1::UsersController < Api::V1::ApiController
     @user = User.find_by(username: params[:username])
     if @user
       @usercategories = @user.user_categories.where(date: params[:date])
-      if @usercategories
-        @send = @usercategories.map do |usercategory|
-          @name = Category.find(usercategory.id).name
-          { progress: "hola"}
-        end
-        render json: @send
+      if @usercategories    
+        render json: @usercategories
       else
         render json: { result: 'Unable to find categories.' }
       end
