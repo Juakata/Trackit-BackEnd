@@ -22,7 +22,7 @@ class Api::V1::UsersController < Api::V1::ApiController
         render json: @user.errors, status: :unprocessable_entity
       end
     else
-      return { result: 'Passwords do not match.'}
+      render json: { result: 'Passwords do not match.' }
     end
   end
 
@@ -36,6 +36,24 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def destroy
     @user.destroy
+  end
+
+  def get_progress
+    @user = User.find_by(username: params[:username])
+    if @user
+      @usercategories = @user.user_categories.where(date: params[:date])
+      if @usercategories
+        @send = @usercategories.map do |usercategory|
+          @name = Category.find(usercategory.id).name
+          { @name => { progress: usercategory.progress }}
+        end
+        render json: @send
+      else
+        render json: { result: 'Unable to find categories.' }
+      end
+    else
+      render json: { result: 'Unable to find user.' }
+    end
   end
 
   private
