@@ -10,10 +10,10 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   def update_goals
     @user = User.find_by(username: params[:username])
     if @user
-      @user.categories.find(1).update(goal_time: params[:net])
-      @user.categories.find(2).update(goal_time: params[:look])
-      @user.categories.find(3).update(goal_time: params[:cod])
-      @user.categories.find(4).update(goal_time: params[:rel])
+      @user.categories.find_by(name: "Networking").update(goal_time: params[:net])
+      @user.categories.find_by(name: "Look for job").update(goal_time: params[:look])
+      @user.categories.find_by(name: "Coding Challenges").update(goal_time: params[:cod])
+      @user.categories.find_by(name: "Relaxing").update(goal_time: params[:rel])
     end
   end
 end
