@@ -45,7 +45,7 @@ class Api::V1::UsersController < Api::V1::ApiController
       if @usercategories
         @send = @usercategories.map do |usercategory|
           @name = Category.find(usercategory.id).name
-          { progress: { progress: usercategory.progress }}
+          { progress: "hola"}
         end
         render json: @send
       else
