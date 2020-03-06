@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/setucat/:date/:progress/:user/:category', to: 'user_categories#setUserCategory'
       get '/getprogress/:username/:date', to: 'users#get_progress'
       get '/getcategories/:username', to: 'categories#index'
+      get '/updategoals/:username/:net/:look/:cod/:rel', to: 'categories#update_goals'
     end
   end
 end
