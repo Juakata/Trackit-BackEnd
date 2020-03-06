@@ -14,9 +14,6 @@ class Api::V1::CategoriesController < Api::V1::ApiController
       @user.categories.find(2).update(goal_time: params[:look])
       @user.categories.find(3).update(goal_time: params[:cod])
       @user.categories.find(4).update(goal_time: params[:rel])
-      render json: { result: "Goals Updated!" }
-    else
-      render json: { result: "Unable to find user" }
     end
   end
 end
