@@ -21,16 +21,24 @@ User.create(
 
 Category.create(
   name: 'Networking',
+  goal_time: 7200000,
+  user_id: 1,
 )
 
 Category.create(
   name: 'Looking for job',
+  goal_time: 7200000,
+  user_id: 1,
 )
 
 Category.create(
   name: 'Coding Challenges',
+  goal_time: 7200000,
+  user_id: 1,
 )
 
 Category.create(
   name: 'Relaxing',
+  goal_time: 7200000,
+  user_id: 1,
 )

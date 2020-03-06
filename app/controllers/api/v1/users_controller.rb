@@ -17,6 +17,11 @@ class Api::V1::UsersController < Api::V1::ApiController
     if params[:password] === params[:repeat]
       @user = User.new(username: params[:username], password: params[:password])
       if @user.save
+        Category.create(name: 'Networking', goal_time: 7200000, user_id: @user.id)
+        Category.create(name: 'Looking for job', goal_time: 7200000, user_id: @user.id)
+        Category.create(name: 'Coding Challenges', goal_time: 7200000, user_id: @user.id)
+        Category.create(name: 'Relaxing', goal_time: 7200000, user_id: @user.id)
+
         render json: @user, status: :created
       else
         render json: @user.errors, status: :unprocessable_entity

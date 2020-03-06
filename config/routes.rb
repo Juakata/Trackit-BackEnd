@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get '/login/:username/:password', to: 'sessions#create'
       get '/setucat/:date/:progress/:user/:category', to: 'user_categories#setUserCategory'
       get '/getprogress/:username/:date', to: 'users#get_progress'
+      get '/getcategories/:username', to: 'categories#index'
     end
   end
 end
