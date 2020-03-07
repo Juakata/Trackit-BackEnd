@@ -54,12 +54,12 @@ class Api::V1::UsersController < Api::V1::ApiController
           json = { id: usercategorie.id, name: @name, progress: usercategorie.progress }
           @send.push(json)
         end
-        render json: @send
+        render json: @send, status: :ok
       else
-        render json: { result: 'Unable to find categories.' }
+        render json: { result: 'Unable to find categories.' }, status: :unprocessable_entity
       end
     else
-      render json: { result: 'Unable to find user.' }
+      render json: { result: 'Unable to find user.' }, status: :unprocessable_entity
     end
   end
 

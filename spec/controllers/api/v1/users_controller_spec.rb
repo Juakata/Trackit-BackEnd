@@ -11,6 +11,13 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     }
   end
 
+  let(:valid_attributes_progress) do
+    {
+      username: 'Andoni',
+      date: '2020-02-06',
+    }
+  end
+
   let(:invalid_short_passwords) do
     {
       username: 'Andoni',
@@ -80,6 +87,18 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       it 'returns a bad status code' do
         get :create, params: invalid_different_passwords
         expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
+
+  describe 'PULL progress' do
+    context 'Should send the progress for a specific user' do
+      it 'with valid attributes' do
+        create(:user)
+        create :category, :net
+        create(:user_category)
+        get :pull_progress, params: valid_attributes_progress
+        expect(response).to have_http_status(:ok)
       end
     end
   end
