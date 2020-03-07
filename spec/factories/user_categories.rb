@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :user_category do
-    date { Faker::Date.in_date_period }
-    progress { Faker::Number.number(digits: 10) }
+    id { 1 }
+    date { '2020-02-06' }
+    progress { 100 }
     user_id { 1 }
     category_id { 1 }
   end

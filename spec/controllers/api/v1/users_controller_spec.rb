@@ -3,101 +3,84 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-  # let(:valid_attributes) do
-  #   {
-  #     username: 'American Pie',
-  #     password: 'TeenComedy',
-  #     token: 'asd08adsa213sagfj56fg436jh'
-  #   }
-  # end
-  #
-  # let(:invalid_attributes) do
-  #   { password: nil }
-  # end
-  #
-  # describe 'GET #index' do
-  #   it 'returns a success response' do
-  #     get :index, params: {}
-  #     expect(response).to be_successful
-  #   end
-  # end
-  #
-  # describe 'GET #show' do
-  #   it 'returns a success response' do
-  #     user = create(:user)
-  #     get :show, params: { id: user.to_param }
-  #     expect(response).to be_successful
-  #   end
-  # end
-  #
-  # describe 'POST #create' do
-  #   context 'with valid params' do
-  #     it 'creates a new User' do
-  #       expect do
-  #         post :create, params: { user: valid_attributes }
-  #       end.to change(User, :count).by(1)
-  #     end
-  #
-  #     it 'returns a 201 status code' do
-  #       post :create, params: { user: valid_attributes }
-  #       expect(response).to have_http_status(:created)
-  #     end
-  #   end
-  #
-  #   context 'with invalid params' do
-  #     it 'does not create a new User' do
-  #       expect do
-  #         post :create, params: { user: invalid_attributes }
-  #       end.to change(User, :count).by(0)
-  #     end
-  #
-  #     it 'returns a 422 status code' do
-  #       post :create, params: { user: invalid_attributes }
-  #       expect(response).to have_http_status(:unprocessable_entity)
-  #     end
-  #   end
-  # end
-  #
-  # describe 'PUT #update' do
-  #   context 'with valid params' do
-  #     let(:new_attributes) do
-  #       {
-  #         username: 'Americano',
-  #         password: 'password123sad123'
-  #       }
-  #     end
-  #
-  #     it 'updates the requested user' do
-  #       user = create(:user)
-  #       put :update, params: { id: user.to_param, user: new_attributes }
-  #       user.reload
-  #       expect(user.attributes).to include('username' => 'Americano')
-  #     end
-  #
-  #     it 'returns a 200 status code' do
-  #       user = create(:user)
-  #
-  #       put :update, params: { id: user.to_param, user: valid_attributes }
-  #       expect(response).to have_http_status(:ok)
-  #     end
-  #   end
-  #
-  #   context 'with invalid params' do
-  #     it 'returns a 422 status code' do
-  #       user = create(:user)
-  #
-  #       put :update, params: { id: user.to_param, user: invalid_attributes }
-  #       expect(response).to have_http_status(:unprocessable_entity)
-  #     end
-  #   end
-  # end
-  #
-  # describe 'DELETE #destroy' do
-  #   it 'destroys the requested user' do
-  #     user = create(:user)
-  #     expect do
-  #       delete :destroy, params: { id: user.to_param }
-  #     end.to change(User, :count).by(-1)
-  #   end
-  # end
+  let(:valid_attributes) do
+    {
+      username: 'Andoni',
+      password: '123456',
+      repeat: '123456',
+    }
+  end
+
+  let(:invalid_short_passwords) do
+    {
+      username: 'Andoni',
+      password: '123',
+      repeat: '123',
+    }
+  end
+
+  let(:invalid_different_passwords) do
+    {
+      username: 'Andoni',
+      password: '1234567',
+      repeat: '1234568',
+    }
+  end
+
+  describe 'GET #create' do
+    context 'with valid params' do
+      it 'creates a new User' do
+        expect do
+          get :create, params: valid_attributes
+        end.to change(User, :count).by(1)
+      end
+
+      it 'returns a 201 status code' do
+        get :create, params: valid_attributes
+        expect(response).to have_http_status(:created)
+      end
+    end
+
+    context 'with valid params should create categories for user' do
+      it 'creates a new User' do
+        expect do
+          get :create, params: valid_attributes
+        end.to change(Category, :count).by(4)
+      end
+    end
+
+    context 'with invalid params should not create categories for user' do
+      it 'creates a new User' do
+        expect do
+          get :create, params: invalid_short_passwords
+        end.to change(Category, :count).by(0)
+      end
+    end
+
+    context 'passwords too short' do
+      it 'does not create a new User' do
+        expect do
+          get :create, params: invalid_short_passwords
+        end.to change(User, :count).by(0)
+      end
+
+      it 'returns a bad status code' do
+        get :create, params: invalid_short_passwords
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+    context 'different passwords' do
+      it 'does not create a new User' do
+        expect do
+          get :create, params: invalid_different_passwords
+        end.to change(User, :count).by(0)
+      end
+
+      it 'returns a bad status code' do
+        get :create, params: invalid_different_passwords
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
 end

@@ -27,7 +27,7 @@ class Api::V1::UsersController < Api::V1::ApiController
         render json: @user.errors, status: :unprocessable_entity
       end
     else
-      render json: { result: 'Passwords do not match.' }
+      render json: { status: 'Passwords do not match.' }, status: :unprocessable_entity
     end
   end
 

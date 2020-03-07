@@ -6,12 +6,12 @@ class Api::V1::SessionsController < Api::V1::ApiController
 
     if @user
       if @user.password == params[:password]
-        render json: @user
+        render json: @user, status: :ok
       else
-        render json: { result: "wrong_password" }
+        render json: { result: "wrong_password" }, status: :unprocessable_entity
       end
     else
-      render json: { result: "not_found" }
+      render json: { result: "not_found" }, status: :unprocessable_entity
     end
   end
 end

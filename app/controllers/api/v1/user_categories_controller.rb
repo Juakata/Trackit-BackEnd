@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::UserCategoriesController < Api::V1::ApiController
-  def setUserCategory
-    @category = fixString(params[:category])
+  def set_user_category
+    @category = fix_string(params[:category])
     @category_id = Category.find_by(name: @category)
     @user_id = User.find_by(username: params[:user])
     @usercategory = UserCategory.find_by(date: params[:date],
@@ -25,7 +25,7 @@ class Api::V1::UserCategoriesController < Api::V1::ApiController
 
   private
 
-  def fixString(string)
+  def fix_string(string)
     arr = ""
     no = ['%','2','0']
     string.split('').each do |e|
