@@ -46,7 +46,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   def get_progress
     @user = User.find_by(username: params[:username])
     if @user
-      @usercategories = @user.user_categories.where(date: params[:date])
+      @usercategories = @user.user_categories.where(date: params[:date]).order(updated_at: :desc)
       if @usercategories
         @send = []
         @usercategories.each do |usercategorie|
