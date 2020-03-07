@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    username { Faker::Name.name }
+    username { 'Andoni' }
     password { Faker::Crypto.md5 }
     token { Faker::Crypto.sha256 }
   end

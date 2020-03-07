@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    progress { "" }
+    name { 'Networking' }
+    user_id { 1 }
   end
 end
