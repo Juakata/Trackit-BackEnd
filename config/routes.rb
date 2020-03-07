@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get '/create/:username/:password/:repeat', to: 'users#create'
       get '/login/:username/:password', to: 'sessions#create'
       get '/setucat/:date/:progress/:user/:category', to: 'user_categories#set_user_category'
-      get '/getprogress/:username/:date', to: 'users#get_progress'
+      get '/getprogress/:username/:date', to: 'users#pull_progress'
       get '/getcategories/:username', to: 'categories#index'
       get '/updategoals/:username/:net/:look/:cod/:rel', to: 'categories#update_goals'
     end

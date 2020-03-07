@@ -11,7 +11,7 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
           net: 100,
           look: 200,
           cod: 300,
-          rel: 400,
+          rel: 400
         }
       end
 
@@ -22,10 +22,10 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
         create :category, :cod
         create :category, :rel
         get :update_goals, params: new_attributes
-        expect(user.categories.find(1).attributes).to include("goal_time" => 100)
-        expect(user.categories.find(2).attributes).to include("goal_time" => 200)
-        expect(user.categories.find(3).attributes).to include("goal_time" => 300)
-        expect(user.categories.find(4).attributes).to include("goal_time" => 400)
+        expect(user.categories.find(1).attributes).to include('goal_time' => 100)
+        expect(user.categories.find(2).attributes).to include('goal_time' => 200)
+        expect(user.categories.find(3).attributes).to include('goal_time' => 300)
+        expect(user.categories.find(4).attributes).to include('goal_time' => 400)
       end
     end
   end

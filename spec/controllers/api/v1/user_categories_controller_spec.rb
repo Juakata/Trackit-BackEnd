@@ -10,7 +10,7 @@ RSpec.describe Api::V1::UserCategoriesController, type: :controller do
           date: '2020-02-06',
           progress: 100,
           user: 'Andoni',
-          category: 'Networking',
+          category: 'Networking'
         }
       end
 
@@ -27,7 +27,7 @@ RSpec.describe Api::V1::UserCategoriesController, type: :controller do
         create :category, :net
         create(:user_category)
         get :set_user_category, params: valid_attributes
-        expect(UserCategory.find(1).attributes).to include("progress" => 200)
+        expect(UserCategory.find(1).attributes).to include('progress' => 200)
       end
     end
   end

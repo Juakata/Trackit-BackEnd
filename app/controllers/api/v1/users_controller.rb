@@ -14,13 +14,13 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def create
-    if params[:password] === params[:repeat]
+    if params[:password] == params[:repeat]
       @user = User.new(username: params[:username], password: params[:password])
       if @user.save
-        Category.create(name: 'Networking', goal_time: 7200000, user_id: @user.id)
-        Category.create(name: 'Looking for job', goal_time: 7200000, user_id: @user.id)
-        Category.create(name: 'Coding Challenges', goal_time: 7200000, user_id: @user.id)
-        Category.create(name: 'Relaxing', goal_time: 7200000, user_id: @user.id)
+        Category.create(name: 'Networking', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Looking for job', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Coding Challenges', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Relaxing', goal_time: 7_200_000, user_id: @user.id)
 
         render json: @user, status: :created
       else
@@ -43,7 +43,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     @user.destroy
   end
 
-  def get_progress
+  def pull_progress
     @user = User.find_by(username: params[:username])
     if @user
       @usercategories = @user.user_categories.where(date: params[:date]).order(updated_at: :desc)

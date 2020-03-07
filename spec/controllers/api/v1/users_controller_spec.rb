@@ -7,7 +7,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     {
       username: 'Andoni',
       password: '123456',
-      repeat: '123456',
+      repeat: '123456'
     }
   end
 
@@ -15,7 +15,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     {
       username: 'Andoni',
       password: '123',
-      repeat: '123',
+      repeat: '123'
     }
   end
 
@@ -23,7 +23,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     {
       username: 'Andoni',
       password: '1234567',
-      repeat: '1234568',
+      repeat: '1234568'
     }
   end
 

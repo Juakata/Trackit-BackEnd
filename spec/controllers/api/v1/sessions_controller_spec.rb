@@ -4,28 +4,27 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::SessionsController, type: :controller do
   describe 'Accepts a user as valid to enter to the app' do
+    let(:valid_attributes) do
+      {
+        username: 'Andoni',
+        password: '123456'
+      }
+    end
+
+    let(:invalid_user) do
+      {
+        username: 'Juan',
+        password: '123456'
+      }
+    end
+
+    let(:invalid_password) do
+      {
+        username: 'Andoni',
+        password: '1234567'
+      }
+    end
     context 'with valid params' do
-      let(:valid_attributes) do
-        {
-          username: 'Andoni',
-          password: '123456'
-        }
-      end
-
-      let(:invalid_user) do
-        {
-          username: 'Juan',
-          password: '123456'
-        }
-      end
-
-      let(:invalid_password) do
-        {
-          username: 'Andoni',
-          password: '1234567'
-        }
-      end
-
       it 'Should let the user enter' do
         create(:user)
         get :create, params: valid_attributes

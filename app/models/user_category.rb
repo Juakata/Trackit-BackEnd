@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserCategory < ApplicationRecord
   validates :date, presence: true
   validates :progress, presence: true
