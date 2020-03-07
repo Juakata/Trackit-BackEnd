@@ -14,7 +14,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   let(:valid_attributes_progress) do
     {
       username: 'Andoni',
-      date: '2020-02-06',
+      date: '2020-02-06'
     }
   end
 
