@@ -16,6 +16,21 @@
 - Ruby version 2.6.4,
 - Rails version 6.0.0.
 
+## Dependencies
+
+-rack-cors
+-pg
+-rspec-rail
+-factory_bot_rails
+-rubocop
+
+## To Run the project locally
+- Clone the repo project https://github.com/Juakata/Trackit.git,
+- yarn install --check-files
+- bundle install
+- rails server
+- You can go to routes to see the options I have available.
+
 ## Authors
 
 👤 **Andoni Uzquiano**
