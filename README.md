@@ -2,6 +2,8 @@
 
 > This project is the back-end of an mobile-app to track the progress of some activities like working on challenges, looking for job, working on your network or if you are just taking a break you can get track of it.
 
+![nativeapp](https://user-images.githubusercontent.com/11781597/76324032-176a6600-62ab-11ea-8e51-aa084159089f.png)
+
 ## Live Demo option-1
 > This Live Demo works on any device but this is a mobile-app, therefore you should go to option-2.  
 
