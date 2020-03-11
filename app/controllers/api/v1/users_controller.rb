@@ -14,12 +14,20 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def create
-    @user = User.new(user_params)
+    if params[:password] == params[:repeat]
+      @user = User.new(username: params[:username], password: params[:password])
+      if @user.save
+        Category.create(name: 'Networking', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Looking for job', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Coding Challenges', goal_time: 7_200_000, user_id: @user.id)
+        Category.create(name: 'Relaxing', goal_time: 7_200_000, user_id: @user.id)
 
-    if @user.save
-      render json: @user, status: :created
+        render json: @user, status: :created
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { status: 'Passwords do not match.' }, status: :unprocessable_entity
     end
   end
 
@@ -33,6 +41,26 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def destroy
     @user.destroy
+  end
+
+  def pull_progress
+    @user = User.find_by(username: params[:username])
+    if @user
+      @usercategories = @user.user_categories.where(date: params[:date]).order(updated_at: :desc)
+      if @usercategories
+        @send = []
+        @usercategories.each do |usercategorie|
+          @name = Category.find_by(id: usercategorie.category_id).name
+          json = { id: usercategorie.id, name: @name, progress: usercategorie.progress }
+          @send.push(json)
+        end
+        render json: @send, status: :ok
+      else
+        render json: { result: 'Unable to find categories.' }, status: :unprocessable_entity
+      end
+    else
+      render json: { result: 'Unable to find user.' }, status: :unprocessable_entity
+    end
   end
 
   private

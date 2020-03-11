@@ -1,15 +1,38 @@
 # Trackit-BackEnd
 
-> This project is the back-end of the Trackit App built with React Native.
+> This project is the back-end of an mobile-app to track the progress of some activities like working on challenges, looking for job, working on your network or if you are just taking a break you can get track of it.
 
-## Live Demo
+![nativeapp](https://user-images.githubusercontent.com/11781597/76324032-176a6600-62ab-11ea-8e51-aa084159089f.png)
 
-[Live Demo Link]()
+## Live Demo option-1
+> This Live Demo works on any device but this is a mobile-app, therefore you should go to option-2.  
+
+[Live Demo Link](https://trackit-kr5a7oq3h.now.sh/)
+
+## Live Demo option-2
+> Install expo on your device. You can download the app from the Play store then go to:
+
+[Click here](https://expo.io/@juakata/Trackit) and scan the QR code.
 
 ## Built With
 
 - Ruby version 2.6.4,
 - Rails version 6.0.0.
+
+## Dependencies
+
+-rack-cors
+-pg
+-rspec-rail
+-factory_bot_rails
+-rubocop
+
+## To Run the project locally
+- Clone the repo project https://github.com/Juakata/Trackit.git,
+- yarn install --check-files
+- bundle install
+- rails server
+- You can go to routes to see the options I have available.
 
 ## Authors
 
