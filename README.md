@@ -4,13 +4,17 @@
 
 ![nativeapp](https://user-images.githubusercontent.com/11781597/76324032-176a6600-62ab-11ea-8e51-aa084159089f.png)
 
-## Live Demo
-> Install expo on your device. You can download the app from the [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_SV) then go to [Expo page](https://expo.io/@juakata/Trackit) and scan the QR code.
-
 ## Built With
 
 - Ruby version 2.6.4,
 - Rails version 6.0.0.
+
+## Live Demo
+> Install expo on your device. You can download the app from the [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_SV) then go to [Expo page](https://expo.io/@juakata/Trackit) and scan the QR code.
+
+## The Front-End was built with React Native.
+
+[Link to the Front-End Repo](https://github.com/Juakata/Trackit)
 
 ## Dependencies
 
