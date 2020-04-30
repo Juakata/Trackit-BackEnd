@@ -26,5 +26,6 @@ class Api::V1::VoicemailsController < Api::V1::ApiController
   def update_message
     voicemail = Voicemail.find(params[:id])
     voicemail.update_attribute(:status, params[:status])
+    render json: { result: 'Updated' }
   end
 end
