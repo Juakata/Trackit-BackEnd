@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get '/getcategories/:username', to: 'categories#index'
       get '/updategoals/:username/:net/:look/:cod/:rel', to: 'categories#update_goals'
       get '/pullvoicemails/:receiver/:sender', to: 'voicemails#pull_voicemails'
-      get '/pullusermail/:name', to: 'usermails#pull_usermail'
+      get '/pullusermail/:id', to: 'usermails#pull_usermail'
     end
   end
 end
