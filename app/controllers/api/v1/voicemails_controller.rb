@@ -4,7 +4,7 @@ class Api::V1::VoicemailsController < Api::V1::ApiController
   def pull_voicemails
     voicemails = Voicemail.where('to_id = (?) AND from_id = (?)',
       params[:receiver],
-      params[:sender])
+      params[:sender]).order(created_at: :asc)
     if voicemails
       send = []
       voicemails.each do |voice|
@@ -26,7 +26,5 @@ class Api::V1::VoicemailsController < Api::V1::ApiController
   def update_message
     voicemail = Voicemail.find(params[:id])
     voicemail.update_attribute(:status, params[:status])
-    index = Voicemail.all.index(voicemail)
-    render json: { index: index, status: voicemail.status }
   end
 end
