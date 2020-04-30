@@ -11,9 +11,9 @@ class Api::V1::UsermailsController < Api::V1::ApiController
   end
 
   def pull_usermail
-    usermail = Usermail.find_by(name: params[:name])
+    usermail = Usermail.find(params[:id])
     if usermail
-      render json: { usermail: usermail }
+      render json: { name: usermail.name }
     else
       render json: { result: 'Not Found' }
     end
