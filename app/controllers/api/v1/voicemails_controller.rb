@@ -22,4 +22,11 @@ class Api::V1::VoicemailsController < Api::V1::ApiController
       render json: { result: 'Not results' }
     end
   end
+
+  def update_message
+    voicemail = Voicemail.find(params[:id])
+    voicemail.update_attribute(:status, params[:status])
+    index = Voicemail.all.index(voicemail)
+    render json: { index: index, status: voicemail.status }
+  end
 end
