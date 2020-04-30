@@ -7,62 +7,133 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(
-  username: 'Juakata',
-  password: '123456',
-  token: '',
+# User.create(
+#   username: 'Juakata',
+#   password: '123456',
+#   token: '',
+# )
+#
+# User.create(
+#   username: 'Andoni',
+#   password: '123456',
+#   token: '',
+# )
+#
+# Category.create(
+#   name: 'Networking',
+#   goal_time: 7200000,
+#   user_id: 1,
+# )
+#
+# Category.create(
+#   name: 'Looking for job',
+#   goal_time: 7200000,
+#   user_id: 1,
+# )
+#
+# Category.create(
+#   name: 'Coding Challenges',
+#   goal_time: 7200000,
+#   user_id: 1,
+# )
+#
+# Category.create(
+#   name: 'Relaxing',
+#   goal_time: 7200000,
+#   user_id: 1,
+# )
+#
+# Category.create(
+#   name: 'Networking',
+#   goal_time: 7200000,
+#   user_id: 2,
+# )
+#
+# Category.create(
+#   name: 'Looking for job',
+#   goal_time: 7200000,
+#   user_id: 2,
+# )
+#
+# Category.create(
+#   name: 'Coding Challenges',
+#   goal_time: 7200000,
+#   user_id: 2,
+# )
+#
+# Category.create(
+#   name: 'Relaxing',
+#   goal_time: 7200000,
+#   user_id: 2,
+# )
+
+user1 = Usermail.create(
+  name: 'Andoni',
+  phonenumber: '7192-7328',
 )
 
-User.create(
-  username: 'Andoni',
-  password: '123456',
-  token: '',
+user2 = Usermail.create(
+  name: 'Hector',
+  phonenumber: '7112-7221',
 )
 
-Category.create(
-  name: 'Networking',
-  goal_time: 7200000,
-  user_id: 1,
+user3 = Usermail.create(
+  name: 'Alejandro',
+  phonenumber: '7882-7118',
 )
 
-Category.create(
-  name: 'Looking for job',
-  goal_time: 7200000,
-  user_id: 1,
+Voicemail.create(
+  status: false,
+  from_id: user2.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Coding Challenges',
-  goal_time: 7200000,
-  user_id: 1,
+Voicemail.create(
+  status: false,
+  from_id: user2.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Relaxing',
-  goal_time: 7200000,
-  user_id: 1,
+Voicemail.create(
+  status: false,
+  from_id: user2.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Networking',
-  goal_time: 7200000,
-  user_id: 2,
+Voicemail.create(
+  status: false,
+  from_id: user3.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Looking for job',
-  goal_time: 7200000,
-  user_id: 2,
+Voicemail.create(
+  status: false,
+  from_id: user3.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Coding Challenges',
-  goal_time: 7200000,
-  user_id: 2,
+Voicemail.create(
+  status: false,
+  from_id: user3.id,
+  to_id: user1.id,
+  duration: 10000
 )
 
-Category.create(
-  name: 'Relaxing',
-  goal_time: 7200000,
-  user_id: 2,
+Voicemail.create(
+  status: false,
+  from_id: user3.id,
+  to_id: user1.id,
+  duration: 10000
+)
+
+Voicemail.create(
+  status: false,
+  from_id: user3.id,
+  to_id: user1.id,
+  duration: 10000
 )
