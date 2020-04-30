@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_032941) do
   end
 
   create_table "voicemails", force: :cascade do |t|
-    t.boolean "status"
+    t.string "status"
     t.integer "from_id"
     t.integer "to_id"
     t.integer "duration"

@@ -83,56 +83,56 @@ user3 = Usermail.create(
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user2.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user2.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user2.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user3.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user3.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user3.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user3.id,
   to_id: user1.id,
   duration: 10000
 )
 
 Voicemail.create(
-  status: false,
+  status: 'new',
   from_id: user3.id,
   to_id: user1.id,
   duration: 10000
