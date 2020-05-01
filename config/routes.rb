@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get '/pullvoicemails/:receiver/:sender', to: 'voicemails#pull_voicemails'
       get '/pullusermail/:id', to: 'usermails#pull_usermail'
       get '/updatemessage/:id/:status', to: 'voicemails#update_message'
+      get '/pullmailusers/:id', to: 'usermail#pull_mailusers'
     end
   end
 end

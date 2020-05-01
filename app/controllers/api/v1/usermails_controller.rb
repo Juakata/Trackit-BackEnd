@@ -18,4 +18,13 @@ class Api::V1::UsermailsController < Api::V1::ApiController
       render json: { result: 'Not Found' }
     end
   end
+
+  def pull_mailusers
+    mailusers = Usermail.where('id != (?)', params[:id])
+    if mailusers
+      render json: { mailusers: mailusers }
+    else
+      render json: { result: 'Empty' }
+    end
+  end
 end
