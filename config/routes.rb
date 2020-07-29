@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       get '/pullusermail/:id', to: 'usermails#pull_usermail'
       get '/updatemessage/:id/:status', to: 'voicemails#update_message'
       get '/pullmailusers/:id', to: 'usermails#pull_mailusers'
+
+      get '/create/form_values', to: 'form_values#create_form_values'
+      get '/pull/form_values', to: 'form_values#pull_form_values'
     end
   end
 end

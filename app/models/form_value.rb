@@ -1,0 +1,2 @@
+class FormValue < ApplicationRecord
+end
